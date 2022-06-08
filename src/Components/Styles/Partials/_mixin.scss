@@ -1,0 +1,18 @@
+@import '../Partials/variables';
+
+@mixin logoHover {
+    background-image: $logo-color;
+    background-clip: text;
+    color: transparent;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+@mixin commonBtn($bg-color, $text-color) {
+    background-image: $bg-color;
+    border-radius: 30px;
+    color: $text-color;
+    border: 1px solid #47e476;
+    cursor: pointer;
+    transition: 300ms;
+}
