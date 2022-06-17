@@ -42,4 +42,17 @@
   -webkit-transition: 300ms;
   transition: 300ms;
 }
+
+.filter-box {
+  -webkit-box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+          box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+}
+
+.guest-section h3 {
+  cursor: pointer;
+}
+
+.guest-section h5 {
+  cursor: pointer;
+}
 /*# sourceMappingURL=main.css.map */

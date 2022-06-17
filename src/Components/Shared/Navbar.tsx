@@ -1,11 +1,11 @@
-import React, { MouseEvent } from 'react';
+import React from 'react';
 import { Link, NavigateFunction, useNavigate } from 'react-router-dom';
 import CustomLink from '../Utility/CustomLink';
 
 const Navbar = () => {
     const navigate: NavigateFunction = useNavigate()
     return (
-        <nav className="navbar navbar-expand-md bg-light border">
+        <nav className="navbar navbar-expand-md bg-light border border-2 sticky-top">
             <div className="container-fluid">
                 <Link to="/" className="logo">Aircnc</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +28,7 @@ const Navbar = () => {
                         <li className="nav-item">
                             <CustomLink to="/login" className="nav-link">Log in</CustomLink>
                         </li>
-                        <li className="nav-item mx-md-2 mx-0 mt-3 mt-md-0">
+                        <li className="nav-item mx-md-2 mx-0 mt-2 mt-md-0">
                             <span onClick={() => navigate('/signup')} className="nav-link common-btn d-inline d-md-block px-3">Sign up</span>
                         </li>
                     </ul>

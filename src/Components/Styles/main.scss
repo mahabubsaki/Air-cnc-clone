@@ -24,3 +24,71 @@
         @include commonBtn($white-bg, black)
     }
 }
+
+@media only screen and (max-width:715px) {
+    .home-section {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .filter {
+        height: auto;
+        position: static;
+    }
+
+    .places {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width:716px) {
+    .home-section {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .filter {
+        height: 350px;
+        overflow-y: scroll;
+        position: sticky;
+        top: 0;
+        width: 32%
+    }
+
+    .places {
+        width: 68%;
+    }
+}
+
+// filter section
+.filter-box {
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+}
+
+.home-hotel {
+    &:hover {
+        background-color: rgb(158, 152, 152);
+        cursor: pointer;
+        transition: 300ms;
+    }
+}
+
+.add-to-form {
+
+    input,
+    select,
+    textarea {
+        background-color: #F2EBE9
+    }
+}
+
+.guest-section {
+    h3 {
+        cursor: pointer;
+    }
+
+    h5 {
+        cursor: pointer;
+    }
+}
