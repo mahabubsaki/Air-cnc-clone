@@ -1,14 +1,16 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '../App/store';
+import { AppDispatch, RootState } from '../../App/store';
 import { AiOutlineArrowRight } from 'react-icons/ai'
-import { HotelState } from '../Types/interfaces';
+import { HotelState } from '../../Types/interfaces';
 import HomeHotel from './HomeHotel';
-import Loading from '../Utility/Loading';
-import { offLoading, selectedLocation } from '../App/isSearchedReducer';
+import Loading from '../../Utility/Loading';
+import { offLoading, selectedLocation } from '../../App/isSearchedReducer';
+import { NavigateFunction, useNavigate } from 'react-router-dom';
 const Hotels = ({ hotels, setHotels }: HotelState): JSX.Element => {
     const dispatch: AppDispatch = useDispatch()
+    const navigate: NavigateFunction = useNavigate()
     const location = useSelector((state: RootState) => state.searched.location)
     const isLoading = useSelector((state: RootState) => state.searched.isLoading)
     useEffect(() => {
@@ -39,8 +41,8 @@ const Hotels = ({ hotels, setHotels }: HotelState): JSX.Element => {
     return (
         <div className="border places">
             {hotels.length > 0 && <div>
-                {location && <button className="btn btn-info d-block ms-auto my-3 me-3">See On Map <AiOutlineArrowRight></AiOutlineArrowRight></button>}
-                <p className="text-center my-2 fs-3">Total {hotels.length} Hotels Found {location && <span>in {location}</span>}</p>
+                {location && <button className="btn btn-info d-block ms-auto my-3 me-3" onClick={() => navigate('/map')}>See On Map <AiOutlineArrowRight></AiOutlineArrowRight></button>}
+                <p className="text-center my-2 fs-3">Total {hotels.length} Hotels Found</p>
                 <div className="row row-cols-sm-2 row-cols-1 p-2 w-100 gy-2 mx-auto">
                     {hotels.map((hotel, index) => <HomeHotel
                         key={index}

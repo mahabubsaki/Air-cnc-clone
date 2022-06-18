@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { selectedLocation } from '../App/isSearchedReducer';
 import { AppDispatch } from '../App/store';
 import Filter from '../Models/Home/Filter';
-import Hotels from '../Models/Hotels';
+import Hotels from '../Models/Home/Hotels';
 import { Hotel } from '../Types/interfaces';
 
 const Home = () => {

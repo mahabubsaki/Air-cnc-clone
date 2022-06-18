@@ -40,6 +40,23 @@
     .places {
         width: 100%;
     }
+
+    .map-container {
+        height: auto;
+        flex-direction: column-reverse;
+        display: flex;
+        align-items: center;
+    }
+
+    .map-locations {
+        height: auto;
+        width: 100%;
+    }
+
+    .map-div {
+        height: 300px;
+        width: 90%;
+    }
 }
 
 @media only screen and (min-width:716px) {
@@ -52,12 +69,30 @@
         height: 350px;
         overflow-y: scroll;
         position: sticky;
-        top: 0;
+        top: 100px;
         width: 32%
     }
 
     .places {
         width: 68%;
+    }
+
+    .map-container {
+        height: calc(100vh - 190px);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .map-div {
+        height: 90%;
+        width: 50%;
+    }
+
+    .map-locations {
+        height: 100%;
+        overflow-y: auto;
+        width: 50%;
     }
 }
 
@@ -91,4 +126,10 @@
     h5 {
         cursor: pointer;
     }
+}
+
+
+.map-location-div {
+    transition: 500ms;
+    cursor: pointer;
 }

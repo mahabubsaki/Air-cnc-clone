@@ -63,12 +63,6 @@ const Filter = ({ locations, setHotels }: FilterInput): JSX.Element => {
         }
         dispatch(offLoading(true))
         dispatch(changeOnSearch(searchQuery))
-        if (e.target.location.value !== 'all') {
-            dispatch(selectedLocation(e.target.location.value))
-        }
-        else {
-            dispatch(selectedLocation(''))
-        }
         const { data } = await axios({
             url: 'http://localhost:5000/api/filter',
             method: 'POST',
@@ -80,7 +74,7 @@ const Filter = ({ locations, setHotels }: FilterInput): JSX.Element => {
                 days: ((new Date(end).getTime() - new Date(start).getTime()) / 86400000) + 1
             },
         })
-        console.log(data)
+        dispatch(selectedLocation(e.target.location.value))
         dispatch(selectedArray(data))
         setHotels(data)
         dispatch(offLoading(false))

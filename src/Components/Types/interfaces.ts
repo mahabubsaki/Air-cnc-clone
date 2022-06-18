@@ -1,3 +1,4 @@
+import { LatLngTuple } from "leaflet";
 import { Dispatch, SetStateAction } from "react";
 
 // all state interface
@@ -9,6 +10,10 @@ export interface FilterInput {
 export interface GuestState {
     guests: GuestInput;
     setGuests: Dispatch<SetStateAction<GuestInput>>
+}
+export interface LoadingState {
+    loading: boolean;
+    setLoading: Dispatch<SetStateAction<boolean>>
 }
 export interface StartDateState {
     start: Date;
@@ -39,6 +44,20 @@ export interface GuestInput {
 export interface HotelComp {
     hotel: Hotel
 }
+export interface LocationComp {
+    location: Hotel;
+    currentHotel?: number;
+    setCurrentHotel?: Dispatch<SetStateAction<number>>;
+    handleChangeHotel: (location: Hotel, position: LatLngTuple) => void;
+    allLocations: Hotel[];
+    loading: boolean;
+}
+export interface LatLongComp {
+    cordinate: LatLngTuple;
+    clicked: boolean;
+    popUp: string;
+    loading: boolean;
+}
 export interface Hotel {
     _id: string;
     ac: boolean;
@@ -49,23 +68,22 @@ export interface Hotel {
     clean: boolean;
     description: string;
     kitchen: boolean;
-    min: number;
     img: string;
     name: string;
     location: string;
-    max: number;
     oavatar: string;
     owner: string;
     party: boolean;
     pet: boolean;
-    position: number[];
+    position: LatLngTuple;
     rating: number;
     reviews: number;
     service: number;
     smoking: boolean;
+    hotelId: string;
     wifi: true;
     pernight: number;
     parking: boolean;
     pool: boolean;
-    spa: boolean
+    spa: boolean;
 }
