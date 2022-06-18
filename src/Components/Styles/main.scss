@@ -57,6 +57,21 @@
         height: 300px;
         width: 90%;
     }
+
+    .single-hotel-info {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .description {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .pricing {
+        width: 90%;
+        margin: 0 auto;
+    }
 }
 
 @media only screen and (min-width:716px) {
@@ -94,6 +109,19 @@
         overflow-y: auto;
         width: 50%;
     }
+
+    .single-hotel-info {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .description {
+        width: 60%
+    }
+
+    .pricing {
+        width: 40%;
+    }
 }
 
 // filter section
@@ -128,6 +156,14 @@
     }
 }
 
+.single-hotel-section {
+    img {
+        height: 250px;
+        width: 75%;
+        display: block;
+        margin: 0 auto;
+    }
+}
 
 .map-location-div {
     transition: 500ms;

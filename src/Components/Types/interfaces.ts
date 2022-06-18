@@ -71,7 +71,7 @@ export interface Hotel {
     img: string;
     name: string;
     location: string;
-    oavatar: string;
+    ownerimg: string;
     owner: string;
     party: boolean;
     pet: boolean;

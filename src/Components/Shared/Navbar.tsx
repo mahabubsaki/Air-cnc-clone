@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React from 'react';
 import { Link, NavigateFunction, useNavigate } from 'react-router-dom';
 import CustomLink from '../Utility/CustomLink';
