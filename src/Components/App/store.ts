@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
+import confirmReducer from './confirmReducer'
 import filterReducer from './filterReducer'
 import isSearchedReducer from './isSearchedReducer'
 
@@ -8,6 +9,7 @@ export const store = configureStore({
   reducer: {
     filter: filterReducer,
     searched: isSearchedReducer,
+    order: confirmReducer,
   },
 })
 

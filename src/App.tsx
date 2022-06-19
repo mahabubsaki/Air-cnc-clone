@@ -7,6 +7,7 @@ import Home from './Components/Pages/Home';
 import ListHotel from './Components/Pages/ListHotel';
 import ViewMap from './Components/Pages/ViewMap';
 import SingleHotel from './Components/Pages/SingleHotel';
+import OrderCheck from './Components/Pages/OrderCheck';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/home" element={<ListHotel />}></Route>
         <Route path="/map" element={<ViewMap />}></Route>
         <Route path="/hotel/:hotelId" element={<SingleHotel />}></Route>
+        <Route path="/check-in" element={<OrderCheck />}></Route>
       </Routes>
       <Footer />
     </div>

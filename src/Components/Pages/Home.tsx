@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { selectedLocation } from '../App/isSearchedReducer';
+import { setHotelInfo, setOrderInfo } from '../App/confirmReducer';
+import { changeOnSearch } from '../App/filterReducer';
+import { offLoading, selectedLocation } from '../App/isSearchedReducer';
 import { AppDispatch } from '../App/store';
 import Filter from '../Models/Home/Filter';
 import Hotels from '../Models/Home/Hotels';
@@ -11,6 +13,10 @@ const Home = () => {
     const dispatch: AppDispatch = useDispatch()
     useEffect(() => {
         dispatch(selectedLocation(''))
+        dispatch(changeOnSearch({ arrival: '', days: 0, departure: '' }))
+        dispatch(offLoading(true))
+        dispatch(setOrderInfo(0))
+        dispatch(setHotelInfo(null))
     }, [dispatch])
     const [hotels, setHotels] = useState<Hotel[]>([])
     return (

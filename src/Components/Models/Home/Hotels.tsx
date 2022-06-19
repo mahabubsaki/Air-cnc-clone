@@ -39,7 +39,7 @@ const Hotels = ({ hotels, setHotels }: HotelState): JSX.Element => {
         return <Loading></Loading>
     }
     return (
-        <div className="border places">
+        <div className="border rounded-3 places">
             {hotels.length > 0 && <div>
                 {location && <button className="btn btn-info d-block ms-auto my-3 me-3" onClick={() => navigate('/map')}>See On Map <AiOutlineArrowRight></AiOutlineArrowRight></button>}
                 <p className="text-center my-2 fs-3">Total {hotels.length} Hotels Found</p>
@@ -50,7 +50,7 @@ const Hotels = ({ hotels, setHotels }: HotelState): JSX.Element => {
                     ></HomeHotel>)}
                 </div>
             </div>}
-            {!hotels.length && <div className='w-100 h-100 d-flex justify-content-center align-items-center px-4'><div>
+            {hotels.length === 0 && <div className='w-100 h-100 d-flex justify-content-center align-items-center px-4'><div>
                 <b className='fs-3'>No hotels found with the following criteria</b>
                 <button className="btn btn-success d-block mx-auto mt-3" onClick={handleLoadAll}>Load All Hotels</button></div></div>}
         </div>

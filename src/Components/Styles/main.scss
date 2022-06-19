@@ -34,6 +34,7 @@
 
     .filter {
         height: auto;
+        width: 75%;
         position: static;
     }
 
@@ -71,6 +72,25 @@
     .pricing {
         width: 90%;
         margin: 0 auto;
+    }
+
+    .check-in {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .order {
+        width: 85%;
+        margin: 0 auto;
+    }
+
+    .order-info {
+        width: 100%;
+    }
+
+    .rules {
+        height: auto;
     }
 }
 
@@ -122,6 +142,25 @@
     .pricing {
         width: 40%;
     }
+
+    .check-in {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .order {
+        width: 45%;
+    }
+
+    .order-info {
+        width: 55%;
+    }
+
+    .rules {
+        height: 200px;
+        overflow-y: scroll;
+    }
 }
 
 // filter section
@@ -168,4 +207,22 @@
 .map-location-div {
     transition: 500ms;
     cursor: pointer;
+}
+
+.date {
+    position: relative;
+    top: 8px;
+}
+
+.checkout {
+    background-image: linear-gradient(90deg, #47e476, #78f574);
+    color: white;
+    border: 1px solid #47e476;
+    cursor: pointer;
+    transition: 500ms;
+
+    &:hover {
+        background-image: linear-gradient(to top, white, white);
+        color: black;
+    }
 }

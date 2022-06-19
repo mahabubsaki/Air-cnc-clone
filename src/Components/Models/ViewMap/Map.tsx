@@ -1,5 +1,5 @@
 import React from 'react';
-import { Circle, MapContainer, Marker, Popup, TileLayer, Tooltip } from 'react-leaflet';
+import { Circle, MapContainer, Marker, TileLayer, Tooltip } from 'react-leaflet';
 import { LatLongComp } from '../../Types/interfaces';
 import Loading3 from '../../Utility/Loading3';
 const Map = ({ cordinate, clicked, popUp, loading }: LatLongComp): JSX.Element => {

@@ -22,7 +22,7 @@ const MapLocation = ({ location, currentHotel, handleChangeHotel, allLocations, 
                 <p className="mt-3">Capacity : {adults} Adults, {childs} Childs, {babies} Babies</p>
                 {cancel ? <p className="my-0"><MdOutlineDoneOutline className='text-success'> </MdOutlineDoneOutline> Canceling Facility Available</p> : <p className="my-0"><TiCancel className='text-danger'></TiCancel> Canceling Facility Not Available</p>}
                 <div className="d-flex justify-content-between mx-3 mt-3">
-                    <p><AiTwotoneStar style={{ color: '#6bfc03', fontSize: '20px' }}></AiTwotoneStar> {rating} ({reviews})</p>
+                    <p><AiTwotoneStar style={{ color: '#6bfc03', fontSize: '20px' }}></AiTwotoneStar> {rating} ({reviews} Reviews)</p>
                     <p><b>${pernight}/</b>night</p>
                 </div>
                 <button className="btn btn-warning d-block mx-auto mb-3" onClick={() => navigate(`/hotel/${hotelId}`)}>Book Now</button>

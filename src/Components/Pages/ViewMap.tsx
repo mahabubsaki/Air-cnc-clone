@@ -6,7 +6,6 @@ import { RootState } from '../App/store';
 import Map from '../Models/ViewMap/Map';
 import MapLocation from '../Models/ViewMap/MapLocation';
 import { Hotel } from '../Types/interfaces';
-import Loading2 from '../Utility/Loading2';
 import { AiOutlineArrowLeft } from 'react-icons/ai'
 
 const ViewMap = () => {

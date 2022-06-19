@@ -80,7 +80,7 @@ const Filter = ({ locations, setHotels }: FilterInput): JSX.Element => {
         dispatch(offLoading(false))
     }
     return (
-        <div className="filter border mx-auto">
+        <div className="filter rounded-3 border mx-auto">
             <form onSubmit={filterLocation}>
                 {/* Location select section */}
                 <div className="shadow p-3 rounded-3">

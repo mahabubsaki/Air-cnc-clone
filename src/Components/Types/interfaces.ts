@@ -6,7 +6,14 @@ export interface FilterInput {
     locations: string[];
     setHotels: Dispatch<SetStateAction<Hotel[]>>;
 }
-
+export interface ReviewState {
+    setReview: Dispatch<SetStateAction<boolean>>;
+    setMessage: Dispatch<SetStateAction<boolean>>;
+}
+export interface ReviewState2 {
+    setMessage: Dispatch<SetStateAction<boolean>>;
+    setPay: Dispatch<SetStateAction<boolean>>
+}
 export interface GuestState {
     guests: GuestInput;
     setGuests: Dispatch<SetStateAction<GuestInput>>
@@ -51,6 +58,10 @@ export interface LocationComp {
     handleChangeHotel: (location: Hotel, position: LatLngTuple) => void;
     allLocations: Hotel[];
     loading: boolean;
+}
+export interface ConfirmOrder {
+    cost: number;
+    orderedHotel: Hotel | null;
 }
 export interface LatLongComp {
     cordinate: LatLngTuple;
