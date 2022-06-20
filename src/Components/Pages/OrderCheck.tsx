@@ -37,7 +37,7 @@ const OrderCheck = () => {
             </div>
             <div className="check-in">
                 {review && <Review setReview={setReview} setMessage={setMessage}></Review>}
-                {message && <Message setMessage={setMessage} setPay={setPay}></Message>}
+                {message && <Message setMessage={setMessage} setPay={setPay} setReview={setReview}></Message>}
                 <Order></Order>
             </div>
         </div>

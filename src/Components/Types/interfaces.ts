@@ -12,7 +12,8 @@ export interface ReviewState {
 }
 export interface ReviewState2 {
     setMessage: Dispatch<SetStateAction<boolean>>;
-    setPay: Dispatch<SetStateAction<boolean>>
+    setPay: Dispatch<SetStateAction<boolean>>;
+    setReview: Dispatch<SetStateAction<boolean>>
 }
 export interface GuestState {
     guests: GuestInput;
@@ -62,6 +63,8 @@ export interface LocationComp {
 export interface ConfirmOrder {
     cost: number;
     orderedHotel: Hotel | null;
+    hotelId: string;
+    message: string;
 }
 export interface LatLongComp {
     cordinate: LatLngTuple;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { MdOutlineChildFriendly } from 'react-icons/md';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../App/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../../App/store';
 import { ReviewState } from '../../Types/interfaces';
 import { GrFanOption } from 'react-icons/gr'
 import { AiOutlineWifi } from 'react-icons/ai';
@@ -10,15 +10,18 @@ import { GiPartyHat } from 'react-icons/gi'
 import { RiParkingBoxLine } from 'react-icons/ri'
 import { TbToolsKitchen } from 'react-icons/tb'
 import { MdOutlinePool, MdSpa, MdSmokingRooms, MdOutlinePets } from 'react-icons/md'
+import { setHotelId } from '../../App/confirmReducer';
 
 const Review = ({ setReview, setMessage }: ReviewState) => {
     const week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
     const hotel = useSelector((state: RootState) => state.order.orderedHotel)
+    const dispatch: AppDispatch = useDispatch()
     const days = useSelector((state: RootState) => state.filter.days)
     const arrival = useSelector((state: RootState) => state.filter.arrival)
     const departure = useSelector((state: RootState) => state.filter.departure)
-    const { location, ac, wifi, cancel, party, parking, kitchen, pool, spa, smoking, pet } = hotel || {}
+    const { location, ac, wifi, cancel, party, parking, kitchen, pool, spa, smoking, pet, hotelId } = hotel || {}
     const handleShowMsg = () => {
+        dispatch(setHotelId(hotelId + ''))
         setReview(false)
         setMessage(true)
     }
