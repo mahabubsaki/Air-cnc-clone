@@ -7,6 +7,7 @@ import Review from '../Models/OrderCheck/Review';
 import Loading2 from '../Utility/Loading2';
 import { IoIosArrowForward } from 'react-icons/io'
 import Message from '../Models/OrderCheck/Message';
+import Pay from '../Models/OrderCheck/Pay';
 
 const OrderCheck = () => {
     const cost = useSelector((state: RootState) => state.order.cost)
@@ -38,6 +39,7 @@ const OrderCheck = () => {
             <div className="check-in">
                 {review && <Review setReview={setReview} setMessage={setMessage}></Review>}
                 {message && <Message setMessage={setMessage} setPay={setPay} setReview={setReview}></Message>}
+                {pay && <Pay setPay={setPay} setMessage={setMessage}></Pay>}
                 <Order></Order>
             </div>
         </div>

@@ -29,7 +29,7 @@ const Navbar = () => {
                             <CustomLink to="/login" className="nav-link">Log in</CustomLink>
                         </li>
                         <li className="nav-item mx-md-2 mx-0 mt-2 mt-md-0">
-                            <span onClick={() => navigate('/signup')} className="nav-link common-btn d-inline d-md-block px-3">Sign up</span>
+                            <span onClick={() => navigate('/register')} className="nav-link common-btn d-inline d-md-block px-3">Sign up</span>
                         </li>
                     </ul>
                 </div>

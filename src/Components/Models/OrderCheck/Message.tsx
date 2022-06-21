@@ -20,8 +20,8 @@ const Message = ({ setMessage, setPay, setReview }: ReviewState2) => {
         setReview(true)
     }
     return (
-        <div className="order-info px-1">
-            <button className="btn btn-info" onClick={handleBack}><BiArrowBack className='me-2'></BiArrowBack>Back</button>
+        <div className="order-info px-1 animate__animated animate__backInUp">
+            <button className="btn btn-info mb-4" onClick={handleBack}><BiArrowBack className='me-2'></BiArrowBack>Back</button>
             <div className="d-flex align-items-center justify-content-between mb-3">
                 <div style={{ width: "90%" }}>
                     <b className="fs-4">Drop a Message to Hotel Owner</b>
@@ -34,7 +34,7 @@ const Message = ({ setMessage, setPay, setReview }: ReviewState2) => {
                 </div>
             </div>
             <form onSubmit={handleSetMessage}>
-                <textarea defaultValue={message && message} placeholder="Enter your message" required name="message" id="" rows={5} className="w-75 mx-auto d-block" ></textarea>
+                <textarea defaultValue={message && message} placeholder="Enter your message" required name="message" rows={5} className="w-75 mx-auto d-block p-3" ></textarea>
                 <button className="checkout d-block mx-auto mt-3" type='submit'>Continue</button>
             </form>
         </div>

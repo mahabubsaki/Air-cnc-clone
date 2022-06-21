@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setHotelInfo, setOrderInfo } from '../App/confirmReducer';
+import { setHotelInfo, setMessageText, setOrderInfo } from '../App/confirmReducer';
 import { changeOnSearch } from '../App/filterReducer';
 import { offLoading, selectedLocation } from '../App/isSearchedReducer';
 import { AppDispatch } from '../App/store';
@@ -17,6 +17,7 @@ const Home = () => {
         dispatch(offLoading(true))
         dispatch(setOrderInfo(0))
         dispatch(setHotelInfo(null))
+        dispatch(setMessageText(''))
     }, [dispatch])
     const [hotels, setHotels] = useState<Hotel[]>([])
     return (

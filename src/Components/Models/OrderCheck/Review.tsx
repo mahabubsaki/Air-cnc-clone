@@ -26,7 +26,7 @@ const Review = ({ setReview, setMessage }: ReviewState) => {
         setMessage(true)
     }
     return (
-        <div className="order-info px-1">
+        <div className="order-info px-1 animate__animated animate__backInUp">
             <h3 className="fw-bold">Review Shedule and Rules</h3>
             <h5 className="fw-bold">{days} Days in {location}</h5>
             <div className="mx-auto d-flex justify-content-between" style={{ width: '100%' }}>

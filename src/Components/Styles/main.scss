@@ -92,12 +92,20 @@
     .rules {
         height: auto;
     }
+
+    .signup-form {
+        width: 95%;
+    }
 }
 
 @media only screen and (min-width:716px) {
     .home-section {
         display: flex;
         flex-direction: row;
+    }
+
+    .signup-form {
+        width: 52%;
     }
 
     .filter {
@@ -225,4 +233,33 @@
         background-image: linear-gradient(to top, white, white);
         color: black;
     }
+}
+
+.signup {
+    position: relative;
+    padding-bottom: 7px;
+    display: inline-block;
+}
+
+.signup-form {
+
+    input,
+    select {
+        border: 2px solid #e5e5e5;
+        background-color: #f8f8f8;
+
+        &:focus {
+            border: 2px solid #66f190;
+        }
+    }
+}
+
+.signup::before {
+    content: "";
+    width: 100%;
+    position: absolute;
+    background-color: #b0f166;
+    border-radius: 5px;
+    height: 4px;
+    bottom: 0;
 }

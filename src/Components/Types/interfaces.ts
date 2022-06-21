@@ -15,6 +15,10 @@ export interface ReviewState2 {
     setPay: Dispatch<SetStateAction<boolean>>;
     setReview: Dispatch<SetStateAction<boolean>>
 }
+export interface ReviewState3 {
+    setPay: Dispatch<SetStateAction<boolean>>;
+    setMessage: Dispatch<SetStateAction<boolean>>;
+}
 export interface GuestState {
     guests: GuestInput;
     setGuests: Dispatch<SetStateAction<GuestInput>>
