@@ -1,16 +1,26 @@
 import { CardCvcElement, CardElement, CardExpiryElement, CardNumberElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import axios from 'axios';
+import { format } from 'date-fns/esm';
 import React, { ChangeEvent, useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
 import { useSelector } from 'react-redux';
+import { NavigateFunction, useNavigate } from 'react-router-dom';
 import { RootState } from '../../App/store';
+import auth from '../../firebase.init';
 import SyncLoader from '../../Loaders/SyncLoader';
 
 const PaymentForm = () => {
+    const [user] = useAuthState(auth)
     const stripe = useStripe();
     const stripeElements = useElements();
+    const navigate: NavigateFunction = useNavigate()
+    const hotel = useSelector((state: RootState) => state.order.orderedHotel);
     const cost = useSelector((state: RootState) => state.order.cost)
-    const hotel = useSelector((state: RootState) => state.order.orderedHotel)
+    const days = useSelector((state: RootState) => state.filter.days)
+    const arrival = useSelector((state: RootState) => state.filter.arrival)
+    const departure = useSelector((state: RootState) => state.filter.departure)
+    const message = useSelector((state: RootState) => state.order.message)
     const [loading, setLoading] = useState<boolean>(false)
     const [incomingSecret, setIncomingSecret] = useState<string>('')
     useEffect(() => {
@@ -68,8 +78,27 @@ const PaymentForm = () => {
             setLoading(false)
             return
         }
-        toast.success('Payment Success' + paymentIntent?.id + paymentIntent?.amount)
-        setLoading(false)
+        const { data } = await axios({
+            method: 'PUT',
+            url: 'http://localhost:5000/api/save-hotel-order',
+            data: {
+                email: user?.email,
+                days: days,
+                cost: cost,
+                hotelId: hotel?.hotelId,
+                arrival: arrival,
+                transactionId: paymentIntent?.id,
+                paidAt: format(new Date(), 'PP'),
+                departure: departure,
+                status: "paid",
+                message: message
+            },
+        })
+        if (data.acknowledged) {
+            toast.success('Payment Success')
+            setLoading(false)
+            navigate('/')
+        }
     }
     return (
         <div>
@@ -104,10 +133,10 @@ const PaymentForm = () => {
                     borderColor: '#ccc',
                     borderWidth: '0.4px'
                 }} name="useraddress" required />
-                <input type="email" placeholder="Email" className="px-3 py-2 mt-2" style={{
+                <input type="email" value={user?.email!} readOnly={true} disabled placeholder="Email" className="px-3 py-2 mt-2" style={{
                     fontSize: '20px',
                     color: '#424770',
-                    borderColor: '#ccc',
+                    borderColor: '#e6e6e6',
                     borderWidth: '0.4px'
                 }} name="usermail" required />
                 <input type="text" placeholder="Phone" className="px-3 py-2 mt-2" style={{
@@ -116,8 +145,8 @@ const PaymentForm = () => {
                     borderColor: '#edebe6',
                     borderWidth: '0.4px'
                 }} name="usernumber" required />
-                <button className='btn btn-warning mt-2' disabled={(!incomingSecret || !stripe) ? true : false} type='submit'>Pay ${cost}</button>
                 {loading && <SyncLoader></SyncLoader>}
+                <button className='btn btn-warning mt-2' disabled={(!incomingSecret || !stripe) ? true : false} type='submit'>Pay ${cost}</button>
             </form>
         </div>
     );

@@ -10,7 +10,7 @@ import LineLoader from '../Loaders/LineLoader';
 import toast from 'react-hot-toast';
 import axios from 'axios';
 import Loader from '../Loaders/Loader';
-import { NavigateFunction, useNavigate } from 'react-router-dom';
+import { Link, NavigateFunction, useNavigate } from 'react-router-dom';
 
 const Register = () => {
     const [user, loading2] = useAuthState(auth);
@@ -60,7 +60,7 @@ const Register = () => {
     const handleSignUp = async (e: ChangeEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (e.target.userPass.value !== e.target.confirm.value) {
-            toast.error('Password did not mail')
+            toast.error('Password did not match')
             return
         }
         await createUserWithEmailAndPassword(e.target.userMail.value, e.target.userPass.value)
@@ -134,6 +134,7 @@ const Register = () => {
                     {(loading || updating) && <LineLoader />}
                     <button className="mt-3 btn btn-success w-100" type='submit'>Sign Up</button>
                 </form>
+                <p>Already User? <Link to="/login" style={{ color: '#60E981', textDecoration: 'none' }}>Log In</Link> Now</p>
             </div>
         </div>
     );

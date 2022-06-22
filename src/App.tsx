@@ -12,6 +12,7 @@ import { Toaster } from 'react-hot-toast';
 import 'animate.css';
 import Login from './Components/Pages/Login';
 import Register from './Components/Pages/Register';
+import RequireAuth from './Components/Utility/RequireAuth';
 
 function App() {
   return (
@@ -22,8 +23,8 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/home" element={<ListHotel />}></Route>
         <Route path="/map" element={<ViewMap />}></Route>
-        <Route path="/hotel/:hotelId" element={<SingleHotel />}></Route>
-        <Route path="/check-in" element={<OrderCheck />}></Route>
+        <Route path="/hotel/:hotelId" element={<RequireAuth><SingleHotel /></RequireAuth>}></Route>
+        <Route path="/check-in" element={<RequireAuth><OrderCheck /></RequireAuth>}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/register' element={<Register />}></Route>
       </Routes>

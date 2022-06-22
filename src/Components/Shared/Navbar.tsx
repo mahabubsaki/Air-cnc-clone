@@ -46,9 +46,14 @@ const Navbar = () => {
                         <li className="nav-item">
                             <CustomLink to="/help" className="nav-link">Help</CustomLink>
                         </li>
-                        {user ? <li className="nav-item">
-                            <span onClick={handleLogout} className="nav-link common-btn d-inline d-md-block px-3">Log Out</span>
-                        </li> : <>
+                        {user ? <>
+                            <li className="nav-item">
+                                <CustomLink to="/my-orders" className="nav-link">My Orders</CustomLink>
+                            </li>
+                            <li className="nav-item">
+                                <span onClick={handleLogout} className="nav-link common-btn d-inline d-md-block px-3">Log Out</span>
+                            </li>
+                        </> : <>
                             <li className="nav-item">
                                 <CustomLink to="/login" className="nav-link">Log in</CustomLink>
                             </li>
