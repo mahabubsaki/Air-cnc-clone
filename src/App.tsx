@@ -13,6 +13,7 @@ import 'animate.css';
 import Login from './Components/Pages/Login';
 import Register from './Components/Pages/Register';
 import RequireAuth from './Components/Utility/RequireAuth';
+import MyOrders from './Components/Pages/MyOrders';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/home" element={<ListHotel />}></Route>
         <Route path="/map" element={<ViewMap />}></Route>
         <Route path="/hotel/:hotelId" element={<RequireAuth><SingleHotel /></RequireAuth>}></Route>
+        <Route path="/my-orders" element={<RequireAuth><MyOrders /></RequireAuth>}></Route>
         <Route path="/check-in" element={<RequireAuth><OrderCheck /></RequireAuth>}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/register' element={<Register />}></Route>

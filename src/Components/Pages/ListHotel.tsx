@@ -22,7 +22,7 @@ const ListHotel = () => {
                 adults: parseInt(e.target.adults.value),
                 childs: parseInt(e.target.childs.value),
                 babies: parseInt(e.target.babies.value),
-                position: [Number(e.target.latitude.value), Number(e.target.longitude.value)],
+                position: [Number(e.target.longitude.value), Number(e.target.latitude.value)],
                 rating: Number(e.target.rating.value),
                 reviews: parseInt(e.target.reviews.value),
                 owner: e.target.owner.value,

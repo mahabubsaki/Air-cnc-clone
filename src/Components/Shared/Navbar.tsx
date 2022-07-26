@@ -40,12 +40,6 @@ const Navbar = () => {
                         <li className="nav-item">
                             <CustomLink to="/home" className="nav-link">Host your home</CustomLink>
                         </li>
-                        <li className="nav-item">
-                            <CustomLink to="/experience" className="nav-link">Host your experience</CustomLink>
-                        </li>
-                        <li className="nav-item">
-                            <CustomLink to="/help" className="nav-link">Help</CustomLink>
-                        </li>
                         {user ? <>
                             <li className="nav-item">
                                 <CustomLink to="/my-orders" className="nav-link">My Orders</CustomLink>

@@ -4,7 +4,6 @@ import { setMessageText } from '../../App/confirmReducer';
 import { AppDispatch, RootState } from '../../App/store';
 import { ReviewState2 } from '../../Types/interfaces';
 import { BiArrowBack } from 'react-icons/bi'
-import toast from 'react-hot-toast';
 
 const Message = ({ setMessage, setPay, setReview }: ReviewState2) => {
     const hotel = useSelector((state: RootState) => state.order.orderedHotel);
@@ -16,7 +15,6 @@ const Message = ({ setMessage, setPay, setReview }: ReviewState2) => {
         dispatch(setMessageText(e.target.message.value))
         setMessage(false)
         setPay(true)
-        toast.error('Something went wrong, please try again')
     }
     const handleBack = () => {
         setMessage(false)

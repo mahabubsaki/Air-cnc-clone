@@ -2,6 +2,9 @@ import { LatLngTuple } from "leaflet";
 import { Dispatch, SetStateAction } from "react";
 
 // all state interface
+export interface SingleOrderInterface {
+    order: OrderInterface
+}
 export interface FilterInput {
     locations: string[];
     setHotels: Dispatch<SetStateAction<Hotel[]>>;
@@ -104,4 +107,19 @@ export interface Hotel {
     parking: boolean;
     pool: boolean;
     spa: boolean;
+}
+export interface OrderInterface {
+    email: string,
+    days: number,
+    cost: number,
+    hotelId: string,
+    arrival: string,
+    transactionId: string,
+    paidAt: string,
+    departure: string,
+    status: string,
+    message: string,
+    name: string,
+    cancel: boolean,
+    img: string,
 }

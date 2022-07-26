@@ -1,4 +1,4 @@
-import { CardCvcElement, CardElement, CardExpiryElement, CardNumberElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import axios from 'axios';
 import { format } from 'date-fns/esm';
 import React, { ChangeEvent, useEffect, useState } from 'react';
@@ -85,19 +85,23 @@ const PaymentForm = () => {
                 email: user?.email,
                 days: days,
                 cost: cost,
+                img: hotel?.img,
+                cancel: hotel?.cancel,
+                pernight: hotel?.pernight,
                 hotelId: hotel?.hotelId,
                 arrival: arrival,
                 transactionId: paymentIntent?.id,
                 paidAt: format(new Date(), 'PP'),
                 departure: departure,
                 status: "paid",
-                message: message
+                message: message,
+                name: hotel?.name,
             },
         })
         if (data.acknowledged) {
             toast.success('Payment Success')
             setLoading(false)
-            navigate('/')
+            navigate('/my-orders')
         }
     }
     return (
